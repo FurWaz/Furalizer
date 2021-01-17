@@ -3,7 +3,7 @@ Made by [FurWaz](https://www.youtube.com/channel/UCYw9qRksXslrsgMELYPCWNw)
 
 Furalizer is a simple, customizable and powerful audio visualizer.
 
-You can use it to play musics with a customized visualizer in realtime, but also to export and save the custom visualizer you just made !
+You can use it to play music with a custom viewer in realtime, but also to export and save the customized viewer you just created in a mp4 file !
 
 Enjoy !
 
