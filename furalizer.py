@@ -343,14 +343,22 @@ audioBitrateSpaceText = tk.Label(audioBitrateEntryFrame, text="kB/s", bg=COLOR_B
 audioBitrateSpaceText.pack(side=RIGHT)
 
 # ---- PRESET SECTION SETUP ---- #
+def updatePreset(h):
+    slidTitle.config(text=settings.presetNbrToStr(settings.preset_number.get()))
 presetFrame = tk.Frame(renderContent, bg=COLOR_BLACK)
 presetFrame.pack(fill=X)
 presetTitle = tk.Label(presetFrame, text="Preset:", bg=COLOR_BLACK, fg=COLOR_WHITE, font=font_medium)
 presetTitle.pack(side=TOP)
 presetEntryFrame = tk.Frame(presetFrame, bg=COLOR_BLACK)
 presetEntryFrame.pack()
-presetWidthText = tk.Entry(presetEntryFrame, textvariable=settings.preset_value, bg=COLOR_BLACK, fg=COLOR_PRIMARY, relief=FLAT, font=font_medium, width=6)
-presetWidthText.pack(side=LEFT)
+slidFrame = tk.Frame(presetEntryFrame, bg=COLOR_BLACK)
+slidFrame.pack(side=TOP)
+slidSlide = tk.Scale(slidFrame, orient=HORIZONTAL, bg=COLOR_WHITE, fg=COLOR_PRIMARY, sliderrelief=FLAT, border=0, 
+                    highlightthickness=0, showvalue=FALSE, sliderlength=10, width=14, troughcolor=COLOR_PRIMARY, length=600,
+                    command=updatePreset, variable=settings.preset_number, from_=0, to=8)
+slidSlide.pack(side=RIGHT, padx=5)
+slidTitle = tk.Label(slidFrame, text="veryfast", bg=COLOR_BLACK, fg=COLOR_WHITE, font=font_medium)
+slidTitle.pack(side=LEFT)
 
 # ---- CRF SECTION SETUP ---- #
 crfFrame = tk.Frame(renderContent, bg=COLOR_BLACK)

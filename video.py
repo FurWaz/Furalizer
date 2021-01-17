@@ -7,6 +7,9 @@ import scipy.io.wavfile as wf
 import numpy as np
 import subprocess as sp
 
+def clamp(value, minimum, maximum):
+    return min(max(value, minimum), maximum)
+
 def renderVideo(settings):
     playVideo(settings, True)
 
@@ -37,7 +40,9 @@ def playVideo(settings, renderMode):
 
     win_set = sf.ContextSettings()
     win_set.antialiasing_level = 8
-    screen = sf.RenderWindow(sf.VideoMode(res[0], res[1]), "Furalizer", sf.Style.DEFAULT, win_set)#
+    screen = sf.RenderWindow(sf.VideoMode(res[0], res[1]), "Furalizer", sf.Style.DEFAULT, win_set)
+    icon = sf.Image.from_file("./resources/icon.png")
+    screen.set_icon(icon.width, icon.height, icon.pixels.tobytes())
     if not renderMode:
         screen.framerate_limit = FPS
         screen.vertical_synchronization = True
@@ -93,7 +98,7 @@ def playVideo(settings, renderMode):
     if renderMode: player.volume = 0
     clock = sf.Clock()
 
-    command = " ".join(["ffmpeg",
+    command = " ".join(["./resources/ffmpeg/ffmpeg.exe",
         '-f', 'rawvideo',
         '-s', str(res[0])+"x"+str(res[1]),
         '-r', str(FPS),
@@ -103,7 +108,7 @@ def playVideo(settings, renderMode):
         '-b:v '+str(settings.render_bitrate.get())+'k',
         '-c:v libx264',
         '-preset '+settings.preset_value.get(),
-        '-crf '+str(settings.crf_value.get()),
+        '-crf '+str(clamp(settings.crf_value.get(), 0, 50)),
         '-pix_fmt', 'yuv420p',
         '-y',
         "./resources/temp.mp4"])
@@ -166,8 +171,6 @@ def playVideo(settings, renderMode):
             
     def sampleNbr(time):
         return int(time * rate)
-    def clamp(value, minimum, maximum):
-        return min(max(value, minimum), maximum)
     def moy(array):
         moyenne = 0
         for i in range(len(array)):

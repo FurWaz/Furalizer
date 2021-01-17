@@ -36,8 +36,9 @@ class Settings:
         self.render_percent = tk.IntVar(root, 0)
         self.crf_value = tk.IntVar(root, 20)
         self.preset_value = tk.StringVar(root, "veryfast")
+        self.preset_number = tk.IntVar(root, 6) # from 0 to 8 [veryslow, slower, slow, medium, fast, faster, veryfast, superfast, ultrafast]
 
-        self.logo_size = tk.IntVar(root, 25) # from 1 to 100
+        self.logo_size = tk.IntVar(root, 20) # from 1 to 100
         self.logo_bumping = tk.IntVar(root, 30) # from 0 to 100
         self.logo_basebright = tk.IntVar(root, 60) # from 0 to 100
         self.logo_reactivity = tk.IntVar(root, 12) # from 0 to 100 (divided by 200)
@@ -45,9 +46,9 @@ class Settings:
         self.back_bumping = tk.IntVar(root, 20) # from 0 to 100
         self.back_basebright = tk.IntVar(root, 40) # from 0 to 100
         self.back_reactivity = tk.IntVar(root, 8) # from 0 to 100 (divided by 200)
-        self.spikes_size = tk.IntVar(root, 40) # from 0 to 100
-        self.spikes_basesize = tk.IntVar(root, 20) # from 0 to 100 (divided by 5)
-        self.spikes_radius = tk.IntVar(root, 50) # from 0 to 100
+        self.spikes_size = tk.IntVar(root, 45) # from 0 to 100
+        self.spikes_basesize = tk.IntVar(root, 10) # from 0 to 100 (divided by 5)
+        self.spikes_radius = tk.IntVar(root, 55) # from 0 to 100
         self.spikes_reactivity = tk.IntVar(root, 40) # from 0 to 100 
         self.nbr_particles = tk.IntVar(root, 40) # from 0 to 100
         self.particules_reactivity = tk.IntVar(root, 50) # from 0 to 100 
@@ -55,6 +56,9 @@ class Settings:
         self.particules_speed = tk.IntVar(root, 50) # from 0 to 100 (divided by 50)
         self.explosion_threshold = tk.IntVar(root, 12) # from 0 to 30
         self.explosion_amount = tk.IntVar(root, 4) # from 0 to 8
+
+    def presetNbrToStr(self, number):
+        return ["veryslow", "slower", "slow", "medium", "fast", "faster", "veryfast", "superfast", "ultrafast"][number]
 
 class Vector2:
     def __init__(self, root, x, y):
