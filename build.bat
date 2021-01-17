@@ -1,0 +1,1 @@
+pyinstaller --onedir --noconsole --icon=./resources/icon.ico furalizer.py
