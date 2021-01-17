@@ -90,6 +90,12 @@ def playVideo(settings, renderMode):
     song_title.font = title_font
     song_title.color = sf.Color(255, 255, 255)
     font_size = settings.font_size.get()/50
+    watermark = sf.Text("Made with Furalizer")
+    watermark.font = title_font
+    watermark.color = sf.Color(255, 255, 255, 192)
+    watermark.character_size = res[1]*0.015
+    watermark.position = sf.Vector2(5, 5)
+    watermark.origin = sf.Vector2(0, 0)
 
     player = sf.Sound()
     player.buffer = sf.SoundBuffer.from_file(settings.musicPath)
@@ -379,6 +385,9 @@ def playVideo(settings, renderMode):
         song_title.character_size = res[1]*0.03*font_size
         song_title.color = sf.Color(255, 255, 255, back_bright)
         screen.draw(song_title)
+
+        #draw watermark
+        screen.draw(watermark)
 
         if not renderMode: deltaTime = clock.restart().seconds
         if playing: progress += deltaTime

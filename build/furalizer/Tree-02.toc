@@ -1,6 +1,6 @@
 ('c:\\users\\paulux\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\pysfml-2.3.2.dev1-py3.7-win-amd64.egg',
  None,
- {'*.cp37-win_amd64.pyd', '*.pyc', '*.py', '*.pyd', 'EGG-INFO', '*.pyw'},
+ {'EGG-INFO', '*.cp37-win_amd64.pyd', '*.pyw', '*.pyc', '*.pyd', '*.py'},
  'DATA',
  [('Lib\\site-packages\\sfml\\openal32.dll',
    'c:\\users\\paulux\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\pysfml-2.3.2.dev1-py3.7-win-amd64.egg\\Lib\\site-packages\\sfml\\openal32.dll',

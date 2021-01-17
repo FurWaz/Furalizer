@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['furalizer.py'],
-             pathex=['C:\\Users\\Paulux\\Documents\\Code\\Furalizer'],
+             pathex=['C:\\Users\\Paulux\\Documents\\GitHub\\Furalizer'],
              binaries=[],
              datas=[],
              hiddenimports=[],
