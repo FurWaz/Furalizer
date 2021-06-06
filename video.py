@@ -406,7 +406,7 @@ def playVideo(settings, renderMode):
     if renderMode:
         time.sleep(0.5)
         proc.stdin.close()
-        os.system("ffmpeg -i "+settings.musicPath+" -i ./resources/temp.mp4 -c:v copy -c:a aac -y -shortest "+settings.outputPath)
+        os.system("./resources/ffmpeg/ffmpeg.exe -i "+settings.musicPath+" -i ./resources/temp.mp4 -c:v copy -c:a aac -y -shortest "+settings.outputPath)
 
 if __name__ == "__main__":
     settings = Settings(tk.Tk("debug"))
